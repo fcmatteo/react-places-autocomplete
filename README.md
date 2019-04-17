@@ -141,6 +141,7 @@ PlacesAutocomplete is a [Controlled Component](https://facebook.github.io/react/
 | [`highlightFirstSuggestion`](#highlightFirstSuggestion) | boolean  |                    | If set to `true`, first list item in the dropdown will be automatically highlighted              |
 | [`shouldFetchSuggestions`](#shouldFetchSuggestions)     | boolean  |                    | Component will hit Google Maps API only if this flag is set `true`                               |
 | [`googleCallbackName`](#googleCallbackName)             |  string  |                    | You can provide a callback name to initialize `PlacesAutocomplete` after google script is loaded |
+| [`fetchOnInit`](#fetchOnInit)                           | boolean  |                    | If set to `true` component will fetch suggestions when the component mounts |
 
 <a name="value"></a>
 
@@ -455,6 +456,25 @@ src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&c
   value={this.state.value}
   onChange={this.handleChange}
   googleCallbackName="initTwo"
+>
+  {/* custom render function */}
+</PlacesAutocomplete>
+```
+
+<a name="fetchOnInit"></a>
+
+### fetchOnInit
+
+Type: `boolean`
+Required: `false`
+Default: `false`
+
+```js
+// Fetch suggestions when the component mounts
+<PlacesAutocomplete
+  value={this.state.address}
+  onChange={this.handleChange}
+  fetchOnInit={true}
 >
   {/* custom render function */}
 </PlacesAutocomplete>

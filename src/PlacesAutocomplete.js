@@ -74,6 +74,10 @@ class PlacesAutocomplete extends React.Component {
         return { ready: true };
       }
     });
+
+    if (this.props.fetchOnInit) {
+      this.fetchPredictions()
+    }
   };
 
   autocompleteCallback = (predictions, status) => {
@@ -381,6 +385,7 @@ PlacesAutocomplete.propTypes = {
   highlightFirstSuggestion: PropTypes.bool,
   shouldFetchSuggestions: PropTypes.bool,
   googleCallbackName: PropTypes.string,
+  fetchOnInit: PropTypes.bool,
 };
 
 PlacesAutocomplete.defaultProps = {
@@ -395,6 +400,7 @@ PlacesAutocomplete.defaultProps = {
   debounce: 200,
   highlightFirstSuggestion: false,
   shouldFetchSuggestions: true,
+  fetchOnInit: false,
 };
 
 export default PlacesAutocomplete;
